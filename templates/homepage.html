@@ -4,6 +4,16 @@
 	<title>Student's Projects</title>
 </head>
 <body>
+<ul>Students:
+	{% for student in github %}
+	<li> <a href="/student?github={{ student[0] }}">{{ student[0] }}</a></li>
+	{% endfor %}
+</ul>
+<ul>Projects:
+	{% for title in titles %}
+	<li><a href="/get-project?title={{ title[0] }}&submit=Submit">{{ title[0] }}</a></li>
+	{% endfor %}
+</ul>
 
 </body>
 </html>
