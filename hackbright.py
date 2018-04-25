@@ -183,6 +183,20 @@ def get_grades_by_title(title):
     return rows
 
 
+def make_new_project(title, description, max_grade):
+    """Add a new project to database."""
+
+    QUERY = """
+            INSERT INTO Projects (title, description, max_grade)
+            VALUES (:title, :description, :max_grade)
+            """
+
+    db_cursor = db.session.execute(QUERY, {'title': title, 'description': description, 
+        'max_grade': max_grade})
+
+    db.session.commit()
+
+
 def handle_input():
     """Main loop.
 
